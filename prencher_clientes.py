@@ -8,7 +8,7 @@ fake = Faker("pt-br")
 name_table = "clientes_cliente"
 
 
-def prencher():
+def prencher_1():
     for n in range(10):
         name = fake.name()
         phone = fake.phone_number()
@@ -23,7 +23,22 @@ def prencher():
         # print(data)
         conn.commit()
 
-prencher()
+def prencher_2():
+    for n in range(10):
+        name = fake.name()
+        value = n * 100 
+        cur.execute("""
+                    INSERT INTO app_vendas_pedido
+                    (client,value)
+                    VALUES(?,?)
+                    
+                    """,
+                    (name, value))
+        # print(data)
+        conn.commit()
+
+# prencher_1()
+prencher_2()
 
 # clientes = cur.execute("SELECT * FROM clientes_cliente")
 # for cliente in clientes:
