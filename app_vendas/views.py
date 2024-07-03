@@ -9,7 +9,7 @@ def index(request):
         "pedidos":pedidos,
         "title_page":"Pagina de Vendas"
     }
-    return render(request,"index_vendas.html", context=context)
+    return render(request,"vendas/index.html", context=context)
 
 def get_pedido(request,pedido_id):
     pedido = get_object_or_404(models.Pedido, id=pedido_id)
@@ -19,4 +19,4 @@ def get_pedido(request,pedido_id):
         # 'id':id,
         "title_page":"Pagina de pedidos"
     }
-    return render(request,"pedidos.html", context=context)
+    return render(request,"vendas/pedidos.html", context=context)
