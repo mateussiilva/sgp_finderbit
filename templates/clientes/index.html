@@ -1,0 +1,37 @@
+{% include "partial/head.html" %}
+
+<body>
+    {% include 'partial/navbar.html' %}
+    <main>
+        <div class="container-search">
+            <input type="text" class="input-control" name="search_cliente" id="isearchclitente" class="search">
+            <input type="button" value="Pesquisar">
+            <input type="button" value="Adicionar">
+
+        </div>
+        <div class="clientes">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id Cliente</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Cep</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td>{{cliente.id_client}}</td>
+                        <td>{{cliente.name}}</td>
+                        <td>{{cliente.telephone}}</td>
+                        <td>{{cliente.cep}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
